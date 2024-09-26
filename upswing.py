@@ -18,58 +18,58 @@ serv_obj = Service(r"E:\browser-drivers\chromedriver.exe")
 # Initialize the WebDriver with the correct argument
 driver = webdriver.Chrome(service=serv_obj, options=opt)
 driver.implicitly_wait(3)
-U="a1bcz1a12@gmail.com"
+U="a1bcz1a1342@gmail.com"
 
 # Open Site 
 driver.get("https://www.demoblaze.com")
 driver.maximize_window()
 # Signup
-# # Signup with valid details
-# driver.find_element(By.XPATH,"//a[@id='signin2']").click()
-# driver.find_element(By.XPATH,"//input[@id='sign-username']").send_keys(U)
-# driver.find_element(By.XPATH,"//input[@id='sign-password']").send_keys("1234")
-# driver.find_element(By.XPATH,"//button[normalize-space()='Sign up']").click()
+# Signup with valid details
+driver.find_element(By.XPATH,"//a[@id='signin2']").click()
+driver.find_element(By.XPATH,"//input[@id='sign-username']").send_keys(U)
+driver.find_element(By.XPATH,"//input[@id='sign-password']").send_keys("1234")
+driver.find_element(By.XPATH,"//button[normalize-space()='Sign up']").click()
 
-# try:
-#     WebDriverWait(driver, 10).until(EC.alert_is_present())
-#     alert = driver.switch_to.alert
-#     alert_text = alert.text
+try:
+    WebDriverWait(driver, 10).until(EC.alert_is_present())
+    alert = driver.switch_to.alert
+    alert_text = alert.text
 
-#     if alert_text == "Sign up successful.":
-#         print("Signup with valid details test case passed")
-#     else:
-#         print(f"Unexpected alert message: {alert_text}")
+    if alert_text == "Sign up successful.":
+        print("Signup with valid details test case passed")
+    else:
+        print(f"Unexpected alert message: {alert_text}")
     
-#     alert.accept()  # Close the alert
+    alert.accept()  # Close the alert
 
-# except TimeoutException:
-#     print("Signup alert did not appear. Test case failed")
+except TimeoutException:
+    print("Signup alert did not appear. Test case failed")
 
-# sleep(5)
+sleep(5)
 
-# # Negative scenario Signup again with same valid details
-# driver.refresh()
-# driver.find_element(By.XPATH,"//a[@id='signin2']").click()
-# driver.find_element(By.XPATH,"//input[@id='sign-username']").send_keys(U)
-# driver.find_element(By.XPATH,"//input[@id='sign-password']").send_keys("1234")
-# driver.find_element(By.XPATH,"//button[normalize-space()='Sign up']").click()
+# Negative scenario Signup again with same valid details
+driver.refresh()
+driver.find_element(By.XPATH,"//a[@id='signin2']").click()
+driver.find_element(By.XPATH,"//input[@id='sign-username']").send_keys(U)
+driver.find_element(By.XPATH,"//input[@id='sign-password']").send_keys("1234")
+driver.find_element(By.XPATH,"//button[normalize-space()='Sign up']").click()
 
-# try:
-#     WebDriverWait(driver, 10).until(EC.alert_is_present())
-#     alert = driver.switch_to.alert
-#     alert_text = alert.text
+try:
+    WebDriverWait(driver, 10).until(EC.alert_is_present())
+    alert = driver.switch_to.alert
+    alert_text = alert.text
 
-#     if alert_text == "Sign up successful.":
-#         print("Signup with same details test case failed")
-#     else:
-#         print(f"Negative scenario passed alert message: {alert_text}")
+    if alert_text == "Sign up successful.":
+        print("Signup with same details test case failed")
+    else:
+        print(f"Negative scenario passed alert message: {alert_text}")
     
-#     alert.accept()  # Close the alert
+    alert.accept()  # Close the alert
 
-# except TimeoutException:
-#     print("Signup alert did not appear. Test case failed")
+except TimeoutException:
+    print("Signup alert did not appear. Test case failed")
 
-# sleep(5)
+sleep(5)
 
 # Negative scenario: Attempt to log in with invalid credentials.
 driver.refresh()
